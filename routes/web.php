@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,10 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::post('/doLogin', [AuthController::class,'doLogin']);
+
+Route::middleware('auth')->get('/dashboard', function () {
+     return view('dashboard');   
 });
