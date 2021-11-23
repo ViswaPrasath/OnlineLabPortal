@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Paper;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -9,6 +9,9 @@ class DashboardController extends Controller
     //
     public function index()
     {
-        return \view('dashboard');
+
+        $papers = Paper::select('id','name','code')->get();
+
+        return \view('dashboard')->with(['papers'=>$papers]);
     }
 }

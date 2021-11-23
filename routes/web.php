@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaperController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,14 @@ Route::get('/login', function () {
 
 Route::post('/doLogin', [AuthController::class,'doLogin']);
 
-Route::middleware('auth')->get('/dashboard', function () {
-     return view('dashboard');   
-});
+Route::get('/dashboard', [DashboardController::class,'index']);
+
+Route::get('/paper/add',[PaperController::class,'add']);
+
+Route::post('/paper/store',[PaperController::class,'store']);
+
+Route::get('/paper/edit/{id}',[PaperController::class,'edit']);
+
+Route::get('/paper/delete/{id}',[PaperController::class,'delete']);
+
+Route::post('/paper/update/{id}',[PaperController::class,'update']);
