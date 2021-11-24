@@ -16,9 +16,13 @@
                 <input type="text" name="roll_no" id="roll_no" class="form-control" placeholder="roll_no" aria-describedby="helpId">
             </div>
 
-            <div class="form-group row">
-                <label for="class" class="col-sm-1-12 col-form-label">Class</label>
-                <input type="text" name="class" id="class" class="form-control" placeholder="class" aria-describedby="helpId">
+            <div class="form-group">
+              <label for="class">Class</label>
+              <select class="form-control" name="class" id="class">
+                @foreach (App\Classes::all() as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+              </select>
             </div>
             
             <div class="form-group">

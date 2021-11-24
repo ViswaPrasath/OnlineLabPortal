@@ -1,8 +1,8 @@
 @extends('layout.layout')
 @section('body')
-<div class="container">
-    {{-- <img src="" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt=""> --}}
-    <form class="col-6" method="POST" action="{{url('doLogin')}}">
+<div class="container" style="display: flex;flex-direction: column;">
+    <img src="{{env('ASSET_URL')}}collegeLogo.png" height="100px" width="100px" alt="logo" style="align-self: center;">
+    <form class="col-6" method="POST" action="{{url('doLogin')}}" style="align-self: center;">
         <legend>Login</legend>
         <div class="form-group row">
             <label for="username" class="col-sm-1-12 col-form-label">Username</label>               

@@ -15,10 +15,16 @@
                 <label for="roll_no" class="col-sm-1-12 col-form-label">Roll No</label>
                 <input type="text" name="roll_no" id="roll_no" class="form-control" placeholder="roll_no" value="{{$student->roll_no}}">
             </div>
-
-            <div class="form-group row">
-                <label for="class" class="col-sm-1-12 col-form-label">Class</label>
-                <input type="text" name="class" id="class" class="form-control" placeholder="class" value="{{$student->class}}">
+            
+            <div class="form-group">
+              <label for="class">Class</label>
+              <select class="form-control" name="class" id="class">
+                @foreach (App\Classes::all() as $item)
+                    <option value="{{$item->id}}" @if ($item->id == $student->class)
+                        selected
+                    @endif>{{$item->name}}</option>
+                @endforeach
+              </select>
             </div>
             
             <div class="form-group">
