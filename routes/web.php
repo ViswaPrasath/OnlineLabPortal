@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaperController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,15 @@ Route::get('/paper/edit/{id}',[PaperController::class,'edit']);
 Route::get('/paper/delete/{id}',[PaperController::class,'delete']);
 
 Route::post('/paper/update/{id}',[PaperController::class,'update']);
+
+Route::get('/student/add',[StudentController::class,'add']);
+
+Route::post('/student/store',[StudentController::class,'store']);
+
+Route::get('/student/list', [StudentController::class,'list']);
+
+Route::get('/student/edit/{id}',[StudentController::class,'edit']);
+
+Route::get('/student/delete/{id}',[StudentController::class,'delete']);
+
+Route::post('/student/update/{id}',[StudentController::class,'update']);

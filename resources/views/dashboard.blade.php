@@ -5,15 +5,9 @@
      <li class="nav-item">
          <a href="#" class="nav-link active">Home</a>
      </li>
-     <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Students</a>
-         <div class="dropdown-menu">
-             <a class="dropdown-item" href="#">Action</a>
-             <a class="dropdown-item" href="#">Another action</a>
-             <div class="dropdown-divider"></div>
-             <a class="dropdown-item" href="#">Action</a>
-         </div>
-     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="{{url('/student/list')}}">Student</a>
+    </li>
      <li class="nav-item">
          <a href="#" class="nav-link">Another link</a>
      </li>
