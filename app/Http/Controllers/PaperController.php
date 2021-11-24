@@ -8,6 +8,12 @@ use App\Paper;
 class PaperController extends Controller
 {
     //
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     function add(Request $request)
     {
         return view('paper.add');

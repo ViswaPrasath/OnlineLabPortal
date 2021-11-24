@@ -3,17 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Student;
 
 class StudentController extends Controller
 {
     //
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function list()
     {
-         $student = Student::all();
+         $student = DB::table('student')
+                   ->select('student.id','student.name','class.name as class','roll_no','student.paper_code','student.pdf')
+                   ->join('class','student.class','=','class.id')
+                   ->get();
          return view('student.list')->with(['students' => $student]);
 
+    }
+
+    public function show(Request $request)
+    {
+        $student = Student::where('roll_no','like',$request->input('search')."%")->get();
+        return view('student.list')->with(['students' => $student]);
     }
 
     public function add(Request $request)

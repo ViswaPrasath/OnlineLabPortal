@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaperController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,11 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::post('/doLogin', [AuthController::class,'doLogin']);
+
+Route::get('/logout', [AuthController::class,'logout']);
 
 Route::get('/dashboard', [DashboardController::class,'index']);
 
@@ -45,8 +48,22 @@ Route::post('/student/store',[StudentController::class,'store']);
 
 Route::get('/student/list', [StudentController::class,'list']);
 
+Route::get('/student/show', [StudentController::class,'show']);
+
 Route::get('/student/edit/{id}',[StudentController::class,'edit']);
 
 Route::get('/student/delete/{id}',[StudentController::class,'delete']);
 
 Route::post('/student/update/{id}',[StudentController::class,'update']);
+
+Route::get('/class/list', [ClassController::class,'list']);
+
+Route::post('/class/store', [ClassController::class,'store']);
+
+Route::get('/class/add', [ClassController::class,'add']);
+
+Route::get('/class/edit/{id}', [ClassController::class,'edit']);
+
+Route::post('/class/update/{id}', [ClassController::class,'update']);
+
+Route::get('/class/delete/{id}', [ClassController::class,'delete']);

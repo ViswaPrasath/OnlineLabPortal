@@ -33,5 +33,18 @@ class AuthController extends Controller
             ];
             return redirect('/login')->with($response);
         }
-    }    
+    }
+    
+    public function logout(Request $request)
+    {
+        
+        Auth::logout();
+        $response = [
+            'message' => 'User Logged Out!!!',
+            'error'   =>  0
+        ];
+
+        return redirect('/login')->with($response);
+    }
+
 }

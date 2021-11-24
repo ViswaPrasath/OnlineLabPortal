@@ -9,19 +9,24 @@
         <a class="nav-link active" href="{{url('/student/list')}}">Student</a>
     </li>
     <li class="nav-item">
-        <a href="#" class="nav-link">Another link</a>
+        <a class="nav-link" href="{{url('/class/list')}}">Class</a>
     </li>
     <li class="nav-item">
-        <a href="#" class="nav-link disabled">Disabled</a>
+        <a href="{{url('logout')}}" class="nav-link">Logout</a>
     </li>
 </ul>
 
 <div class="card">
-    <div class="card-header">
-        Students List
-        <a name="" id="" class="btn btn-primary" href="{{url('/student/add')}}" role="button">Add</a>
+    <div class="card-header row" style="justify-content: space-between;">
+        <div class="col-6">
+            Students List
+            <a name="" id="" class="btn btn-primary" href="{{url('/student/add')}}" role="button">Add</a>
+        </div>
+        <form class="row" method="GET" action="{{url('/student/show')}}">
+        <input type="text" class="col-6 form-control" name="search" id="search" aria-describedby="helpId" placeholder="Search">
+        <button type="submit" class="btn btn-success">Search</button>
+        </form>
     </div>
-
     <div class="card-body" style="overflow: scroll;">
         @include('validation-errors')
 

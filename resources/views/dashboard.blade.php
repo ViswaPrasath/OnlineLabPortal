@@ -9,10 +9,10 @@
         <a class="nav-link" href="{{url('/student/list')}}">Student</a>
     </li>
      <li class="nav-item">
-         <a href="#" class="nav-link">Another link</a>
-     </li>
+        <a class="nav-link" href="{{url('/class/list')}}">Class</a>
+    </li>
      <li class="nav-item">
-         <a href="#" class="nav-link disabled">Disabled</a>
+         <a href="{{url('logout')}}" class="nav-link">Logout</a>
      </li>
  </ul>
  <div style="display: flex;justify-content: space-between;">
